@@ -27,6 +27,8 @@ class IngredientInput:
         print("Ingredients stored:", self.ingredients)  # Show stored ingredients
         return True  # Valid input
 
+    def get_ingredients(self):
+        return list(self.ingredients)
 
 # Create an instance and start user input
 ob = IngredientInput()
