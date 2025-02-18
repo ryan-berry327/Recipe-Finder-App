@@ -10,9 +10,12 @@ class RecipeAPI:
     def build_url(self, ingredients):
         ingredients_str = ",".join(ingredients)
         url = f"{self.base_url}{self.endpoint_url}?ingredients={ingredients_str}&apiKey={self.api_key}&number={self.num_recipe}"
+        return url # return the specific url to find the recipe
 
+    # This method sends a GET request to the Spoonacular API and returns the response
     def search_recipes(ingredients):
-        pass
+        url = self.build_url(ingredients) # Build the URL
+        
 
     def parse_recipes(response):
         pass
