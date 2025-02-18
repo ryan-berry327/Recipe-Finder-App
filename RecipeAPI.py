@@ -15,10 +15,30 @@ class RecipeAPI:
     # This method sends a GET request to the Spoonacular API and returns the response
     def search_recipes(ingredients):
         url = self.build_url(ingredients) # Build the URL
-        
+        response = requests.get(url) # Send the GET request
+        if respons.status_code == 200: # if request was successful
+            return response.json() # Return the JSON response
+        else:
+            print(f"ErrorL {response.status_code}")
+            return None # None if theres an error
 
+    # Puts the API response and returns a list of the recipes
     def parse_recipes(response):
-        pass
+        recipes = []
+
+        if response: 
+            for recipe in response:
+                recipe_data = {
+                    "name": name["title"], # Recipe title
+                    "ingredients": recipe["userIngredients"] # Ingredients used
+                    "missing_ingredients": recipe["missedIngredients"], # Missing ingredients
+                    "instructions": recipe.get("instructions","Instructions not available") # Gets instructions if they are available
+                    "link": f"https://spoonacular.com/recipes/{recipe['title'].replace(' ', '-')}-{recipe['id']}"  # Recipe link
+                }
+                recipes.append(recipe_data)
+        
+        return recipes
+        
 
     
 
