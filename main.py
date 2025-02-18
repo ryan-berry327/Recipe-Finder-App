@@ -1,9 +1,6 @@
 from ingredient_input import IngredientInput
 from recipe_api import RecipeAPI
 
-import IngredientInput  # Import IngredientInput class
-import RecipeAPI  # Import RecipeAPI class
-
 class Main:
 
     @staticmethod
@@ -30,14 +27,8 @@ class Main:
             for recipe in recipes:
                 # Safely access fields and handle missing keys using .get()
                 title = recipe.get("title", "No title available")
-                ingredients_used = ', '.join([ingredient.get('name', 'Unknown ingredient') for ingredient in recipe.get("ingredients", [])])
-                missing_ingredients = ', '.join([ingredient.get('name', 'Unknown ingredient') for ingredient in recipe.get("missing_ingredients", [])])
-                link = recipe.get("link", "Link not available")
 
                 print(f"Title: {title}")
-                print(f"Ingredients used: {ingredients_used}")
-                print(f"Missing Ingredients: {missing_ingredients}")
-                print(f"Recipe URL: {link}")
                 print("-------------")
         else:
             print("No recipes found.")

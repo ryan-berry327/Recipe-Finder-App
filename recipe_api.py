@@ -31,10 +31,6 @@ class RecipeAPI:
             for recipe in response:
                 recipe_data = {
                     "name": recipe["title"], # Recipe title
-                    "ingredients": recipe["userIngredients"], # Ingredients used
-                    "missing_ingredients": recipe["missedIngredients"], # Missing ingredients
-                    "instructions": recipe.get("instructions","Instructions not available"), # Gets instructions if they are available
-                    "link": f"https://spoonacular.com/recipes/{recipe['title'].replace(' ', '-')}-{recipe['id']}" if 'id' in recipe else "Link not available"  # Recipe link
                 }
                 recipes.append(recipe_data)
         
